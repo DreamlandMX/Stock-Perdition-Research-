@@ -1,0 +1,43 @@
+:root {
+  --color-page: #0e0f11;
+  --color-surface: #15161a;
+  --color-surface-secondary: #1b1c21;
+  --color-divider: #2c2c34;
+  --color-hairline: #232329;
+  --color-surface-raised: #1b1c21;
+  --color-track: #34343d;
+  /* One hue for scenario/uncertainty geometry, kept apart from the up/down
+     semantics so a widening band never reads as a directional call. */
+  --color-cone: #8f87c9;
+  --color-text: #ecebf2;
+  --color-text-secondary: #a9a8b6;
+  --color-text-tertiary: #706f7d;
+  --color-focus: #b4a7f5;
+  --color-accent-soft: #2a2640;
+  --color-up: #3ecf8e;
+  --color-down: #f2647a;
+  --color-warning: #f0b860;
+  --color-intent-itm-call: #1f6b4b;
+  --color-intent-itm-put: #7a3340;
+  --color-expiry-1: #b4a7f5;
+  --color-expiry-2: #7d74bf;
+  --color-expiry-3: #4f4885;
+  --color-expiry-4: #34304f;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-small: 4px;
+  --radius-medium: 6px;
+  --radius-large: 10px;
+  --font-sans:
+    "Inter", "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI",
+    "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", "Consolas", monospace;
+  --num-hero: clamp(28px, 3.2vw, 38px);
+  --num-lg: 19px;
+  --num-md: 14px;
+}

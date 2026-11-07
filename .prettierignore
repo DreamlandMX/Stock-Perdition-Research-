@@ -1,0 +1,15 @@
+.agents/
+.codex/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.superpowers/
+.venv/
+backend/
+build/
+dist/
+docs/
+node_modules/
+frontend/src/api/generated/
+uv.lock
+var/

@@ -1,0 +1,112 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stock-prediction"
+version = "0.1.0"
+description = "Stock prediction research platform."
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "alpaca-py==0.44.0",
+    "apscheduler==3.11.3",
+    "catboost==1.2.10",
+    "duckdb>=1.5.4",
+    "fastapi",
+    "filelock",
+    "futu-api==10.8.6808",
+    "joblib>=1.5.3",
+    "lightgbm>=4.6.0",
+    "numpy>=2.4.6",
+    "optuna>=4.5,<5",
+    "pandas",
+    "psutil>=7.2.2",
+    "pyarrow>=25.0.0",
+    "pydantic",
+    "pytz>=2025.2",
+    "scikit-learn>=1.9.0",
+    "scipy>=1.17.1",
+    "threadpoolctl>=3.6.0",
+    "torch==2.8.0",
+    "uvicorn",
+]
+
+[project.scripts]
+stock-prediction = "stock_prediction.cli:main"
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'win32'" }]
+
+[dependency-groups]
+dev = [
+    "httpx",
+    "mypy",
+    "pytest",
+    "ruff",
+]
+
+[tool.setuptools]
+package-dir = { "" = "backend/src" }
+
+[tool.setuptools.data-files]
+"share/stock_prediction/sql/m1" = ["backend/sql/m1/toolchain_smoke.sql"]
+"share/stock_prediction/sql/m2" = [
+    "backend/sql/m2/adjusted_market_bars.sql",
+    "backend/sql/m2/data_quality_summary.sql",
+    "backend/sql/m2/normalized_market_bars.sql",
+]
+"share/stock_prediction/sql/m3" = [
+    "backend/sql/m3/asof_observations.sql",
+]
+
+[tool.setuptools.packages.find]
+where = ["backend/src"]
+
+[tool.pytest.ini_options]
+addopts = "--import-mode=importlib"
+testpaths = ["backend/tests"]
+pythonpath = ["backend/src", ".", "backend/tests/options"]
+markers = [
+    "integration: tests that require external services",
+]
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "backend/src"
+strict = true
+
+[[tool.mypy.overrides]]
+module = ["futu", "futu.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    "catboost",
+    "catboost.*",
+    "pandas",
+    "pandas.*",
+    "pyarrow",
+    "pyarrow.*",
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = [
+    "apscheduler",
+    "apscheduler.*",
+    "sklearn",
+    "sklearn.*",
+]
+ignore_missing_imports = true

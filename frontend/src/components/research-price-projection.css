@@ -1,0 +1,124 @@
+.research-price-projection {
+  border: 1px solid color-mix(in srgb, var(--color-focus) 34%, var(--color-divider));
+  background: color-mix(in srgb, var(--color-focus) 5%, var(--color-surface));
+  padding: 14px;
+}
+
+.research-price-projection > header,
+.research-price-projection > footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.research-price-projection > header span,
+.research-price-projection > footer {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.research-price-projection > header span {
+  line-height: 1.4;
+}
+
+.research-price-projection > header strong {
+  color: var(--color-text);
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.research-price-projection dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 14px 0;
+  background: var(--color-divider);
+}
+
+.research-price-projection dl > div {
+  min-width: 0;
+  background: var(--color-surface);
+  padding: 11px 12px;
+}
+
+.research-price-projection dt {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.research-price-projection dd {
+  margin: 5px 0 0;
+  color: var(--color-text);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+
+.research-price-projection > footer {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.research-price-projection > footer span:last-child {
+  margin-left: auto;
+  color: var(--color-warning);
+}
+
+.research-price-projection--compact {
+  border: 0;
+  border-top: 1px solid var(--color-divider);
+  background: transparent;
+  padding: 10px 0 0;
+}
+
+.research-price-projection--compact > header strong {
+  font-size: 17px;
+  white-space: nowrap;
+}
+
+.research-price-projection--compact dl {
+  grid-template-columns: 1fr 1fr;
+  margin: 9px 0;
+}
+
+.research-price-projection--compact dl > div:first-child {
+  grid-column: 1 / -1;
+}
+
+.research-price-projection--compact dl > div {
+  padding: 7px 8px;
+}
+
+.research-price-projection--compact > footer {
+  display: flex;
+  gap: 4px 10px;
+  padding-top: 2px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.research-price-projection--compact > footer time {
+  text-align: left;
+}
+
+.research-price-projection--unavailable {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .research-price-projection dl {
+    grid-template-columns: 1fr;
+  }
+
+  .research-price-projection--compact dl {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .research-price-projection > footer span:last-child {
+    width: 100%;
+    margin-left: 0;
+  }
+}

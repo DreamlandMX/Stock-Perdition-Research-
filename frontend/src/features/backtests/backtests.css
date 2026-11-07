@@ -1,0 +1,421 @@
+.backtest-empty {
+  margin: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+}
+
+.backtest-empty a {
+  display: inline-block;
+  margin-block: var(--space-2);
+  color: var(--color-focus);
+}
+
+.backtest-empty input {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+  background: var(--color-surface-secondary);
+  color: var(--color-text);
+}
+
+.backtests-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  min-width: 0;
+  padding: var(--space-4);
+  color: var(--color-text);
+}
+
+.backtests-page__header,
+.backtest-panel > header,
+.backtest-chart-card > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.backtests-page__header h1,
+.backtest-panel h2,
+.backtest-chart-card h2,
+.backtest-loading h1,
+.backtest-error h1 {
+  margin: 0;
+}
+
+.backtests-page__header h1 {
+  font-size: 24px;
+}
+
+.backtests-page__header p,
+.backtest-panel header p,
+.backtest-chart-card header p {
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.backtests-page__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.backtests-page__badges span,
+.backtest-context span {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.backtest-governance-alert,
+.backtest-url-warnings,
+.backtest-loading,
+.backtest-error {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-warning);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface-secondary);
+}
+
+.backtest-governance-alert strong,
+.backtest-governance-alert svg,
+.backtest-url-warnings,
+.backtest-capacity-gap,
+.is-worst-window strong {
+  color: var(--color-warning);
+}
+
+.backtest-governance-alert p,
+.backtest-url-warnings p,
+.backtest-loading p,
+.backtest-error p {
+  margin: var(--space-1) 0 0;
+}
+
+.backtest-url-warnings {
+  display: grid;
+}
+
+.backtest-error {
+  min-width: 0;
+}
+
+.backtest-error > div {
+  min-width: 0;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.backtest-error > svg {
+  flex-shrink: 0;
+}
+
+.backtest-slices,
+.backtest-panel,
+.backtest-chart-card,
+.backtest-context {
+  min-width: 0;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+}
+
+.backtest-slices > summary,
+.backtest-chart-table > summary {
+  min-height: 44px;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.backtest-slices__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: var(--space-3);
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+.backtest-slices label {
+  display: grid;
+  gap: var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.backtest-slices input,
+.backtest-slices select {
+  width: 100%;
+  min-height: 36px;
+  padding: 0 var(--space-2);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+  background: var(--color-surface-secondary);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.backtest-context {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  font-size: 13px;
+}
+
+.backtest-context strong {
+  margin-right: var(--space-2);
+}
+
+.backtest-panel > header,
+.backtest-chart-card > header {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.backtest-panel h2,
+.backtest-chart-card h2 {
+  font-size: 15px;
+}
+
+.backtest-panel--priority {
+  border-color: var(--color-focus);
+}
+
+.backtest-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.backtest-chart-grid > :last-child {
+  grid-column: 1 / -1;
+}
+
+.backtest-chart {
+  width: 100%;
+  height: 300px;
+}
+
+.backtest-chart-table {
+  border-top: 1px solid var(--color-divider);
+}
+
+.backtest-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.backtest-data-table,
+.backtest-chart-table table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  color: var(--color-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.backtest-data-table th,
+.backtest-data-table td,
+.backtest-chart-table th,
+.backtest-chart-table td {
+  padding: var(--space-2) var(--space-3);
+  border-right: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.backtest-data-table th:last-child,
+.backtest-data-table td:last-child,
+.backtest-chart-table th:last-child,
+.backtest-chart-table td:last-child {
+  border-right: 0;
+}
+
+.backtest-data-table thead th,
+.backtest-chart-table thead th {
+  background: var(--color-surface-secondary);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.backtest-data-table tbody tr:last-child > *,
+.backtest-chart-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.backtest-metric {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.backtest-metric:last-child {
+  margin-bottom: 0;
+}
+
+.is-worst-window > * {
+  background: var(--color-surface-secondary);
+}
+
+.backtest-audit__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding: var(--space-3);
+}
+
+.backtest-audit__grid p,
+.backtest-capacity-gap {
+  margin: 0;
+  padding: var(--space-2);
+  border-left: 2px solid var(--color-divider);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.backtest-capacity-gap {
+  margin: var(--space-3) var(--space-4) 0;
+  border-left-color: var(--color-warning);
+}
+
+.backtest-panel > .backtest-chart-card {
+  margin: var(--space-3);
+}
+
+.backtest-governance-grid,
+.backtest-sensitivity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  padding: var(--space-3);
+}
+
+.backtest-governance-grid article,
+.backtest-evidence-scope {
+  padding: var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+  background: var(--color-surface-secondary);
+}
+
+.backtest-governance-grid h3,
+.backtest-governance-grid p,
+.backtest-evidence-scope p {
+  margin: 0 0 var(--space-2);
+  font-size: 12px;
+}
+
+.backtest-governance-grid p:last-child,
+.backtest-evidence-scope p:last-child {
+  margin-bottom: 0;
+}
+
+.backtest-audit > .backtest-table-scroll {
+  border-top: 1px solid var(--color-divider);
+}
+
+.backtest-evidence-scope {
+  margin: var(--space-3);
+}
+
+.backtest-stacked-tables {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.backtest-sensitivity-grid {
+  border-bottom: 1px solid var(--color-divider);
+}
+
+@media (max-width: 1100px) {
+  .backtest-slices__grid {
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+  }
+
+  .backtest-audit__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .backtests-page {
+    padding: var(--space-3);
+  }
+
+  .backtests-page__header,
+  .backtest-panel > header,
+  .backtest-chart-card > header {
+    flex-direction: column;
+  }
+
+  .backtest-slices__grid,
+  .backtest-chart-grid,
+  .backtest-audit__grid,
+  .backtest-governance-grid,
+  .backtest-sensitivity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .backtest-chart-grid > :last-child {
+    grid-column: auto;
+  }
+
+  .backtest-slices input,
+  .backtest-slices select {
+    min-height: 44px;
+  }
+
+  .backtest-chart {
+    height: 260px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .backtests-page {
+    gap: 10px;
+  }
+  .backtest-context {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: var(--color-surface);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .backtest-panel {
+    padding: 16px 18px;
+  }
+  .backtest-panel--priority {
+    border-top: 2px solid var(--color-focus);
+  }
+  .backtest-chart-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .backtest-chart-grid > :last-child {
+    grid-column: auto;
+  }
+  .backtest-governance-grid,
+  .backtest-sensitivity-grid {
+    gap: 10px;
+  }
+  .backtest-data-table th,
+  .backtest-data-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,397 @@
+/* The one write action in this product: collect today's close, rebuild
+   features, run the gates, publish a snapshot. It is styled as a real button
+   rather than a link because it changes data. */
+
+.eod-update-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-4);
+  background: color-mix(in srgb, var(--color-focus), transparent 88%);
+  border: 1px solid color-mix(in srgb, var(--color-focus), transparent 55%);
+  border-radius: var(--radius-small);
+  color: var(--color-focus);
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.eod-update-button:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-focus), transparent 78%);
+  border-color: color-mix(in srgb, var(--color-focus), transparent 35%);
+}
+
+.eod-update-button:disabled {
+  background: var(--color-surface);
+  border-color: var(--color-divider);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+.eod-update-button[aria-busy="true"]:disabled {
+  border-color: color-mix(in srgb, var(--color-focus), transparent 65%);
+  color: var(--color-focus);
+}
+
+/* Compact variant is what the top bar uses: it has to sit on the same optical
+   line as the search field and the OpenD readout. */
+.eod-update-button--compact {
+  min-height: 36px;
+  flex: 0 0 auto;
+  padding: 0 var(--space-3);
+  font-size: 12.5px;
+}
+
+.eod-update-button__spinner {
+  animation: eod-update-spin 900ms linear infinite;
+}
+
+@keyframes eod-update-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- health-page operation panel ---- */
+
+.eod-operation-panel {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+}
+
+.eod-operation-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.eod-operation-panel__header h2,
+.eod-operation-panel__header p {
+  margin: 0;
+}
+
+.eod-operation-panel__header h2 {
+  font-size: 16px;
+}
+
+.eod-operation-panel__header p {
+  margin-top: 2px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.eod-operation-cutoffs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+}
+
+.eod-operation-cutoffs > div {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  border-right: 1px solid var(--color-divider);
+}
+
+.eod-operation-cutoffs > div:last-child {
+  border-right: 0;
+}
+
+.eod-operation-cutoffs span,
+.eod-operation-cutoffs strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eod-operation-cutoffs span {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.eod-operation-cutoffs strong {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.eod-operation-panel__empty,
+.eod-operation-panel__error,
+.eod-operation-worker-alert,
+.eod-operation-retry,
+.eod-operation-panel__failure {
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border-left: 3px solid var(--color-divider);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.eod-operation-worker-alert,
+.eod-operation-retry,
+.eod-operation-panel__failure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  background: var(--color-surface-secondary);
+}
+
+.eod-operation-worker-alert,
+.eod-operation-retry {
+  border-left-color: var(--color-warning);
+}
+
+.eod-operation-panel__error,
+.eod-operation-panel__failure {
+  border-left-color: var(--color-down);
+}
+
+.eod-operation-progress {
+  height: 5px;
+  overflow: hidden;
+  background: var(--color-track);
+  border-radius: var(--radius-small);
+}
+
+.eod-operation-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--color-focus);
+}
+
+.eod-operation-status {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-size: 12px;
+}
+
+.eod-operation-status strong {
+  color: var(--color-focus);
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+
+.eod-operation-status small {
+  margin-left: auto;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+
+.eod-operation-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.eod-operation-timeline li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2px var(--space-2);
+  min-width: 0;
+  padding: var(--space-2);
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-small);
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.eod-operation-timeline li > span,
+.eod-operation-timeline li > small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eod-operation-timeline li > small {
+  grid-column: 2;
+  color: var(--color-text-secondary);
+}
+
+.eod-operation-timeline .is-completed {
+  border-color: color-mix(in srgb, var(--color-up), transparent 65%);
+  color: var(--color-up);
+}
+
+.eod-operation-timeline .is-running {
+  border-color: color-mix(in srgb, var(--color-focus), transparent 55%);
+  color: var(--color-focus);
+}
+
+.eod-operation-timeline .is-failed {
+  border-color: color-mix(in srgb, var(--color-down), transparent 55%);
+  color: var(--color-down);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eod-update-button__spinner {
+    animation: none;
+  }
+}
+
+/* ---- result banner ---- */
+
+.eod-update-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+  color: var(--color-text);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.eod-update-notice > svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.eod-update-notice > span {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.eod-update-notice--success {
+  border-color: color-mix(in srgb, var(--color-up), transparent 62%);
+}
+
+.eod-update-notice--success > svg {
+  color: var(--color-up);
+}
+
+.eod-update-notice--retrying {
+  border-color: color-mix(in srgb, var(--color-warning), transparent 62%);
+}
+
+.eod-update-notice--retrying > svg {
+  color: var(--color-warning);
+}
+
+.eod-update-notice--failed {
+  border-color: color-mix(in srgb, var(--color-down), transparent 55%);
+  box-shadow: inset 2px 0 0 var(--color-down);
+}
+
+.eod-update-notice--failed > svg {
+  color: var(--color-down);
+}
+
+.eod-update-notice a {
+  flex: 0 0 auto;
+  color: var(--color-focus);
+  white-space: nowrap;
+}
+
+.eod-update-notice > button {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: -6px -6px -6px 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-small);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.eod-update-notice > button:hover {
+  background: var(--color-surface-secondary);
+  color: var(--color-text);
+}
+
+/* The shell renders the result under the data-status banner, so it needs the
+   page gutter the routed pages supply for themselves. */
+.app-main > .eod-update-notice {
+  margin: var(--space-3) var(--space-3) 0;
+}
+
+@media (max-width: 767px) {
+  .eod-operation-panel {
+    padding: var(--space-3);
+  }
+
+  .eod-operation-panel__header,
+  .eod-operation-worker-alert,
+  .eod-operation-retry,
+  .eod-operation-panel__failure {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .eod-operation-cutoffs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .eod-operation-cutoffs > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .eod-operation-cutoffs > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-divider);
+  }
+
+  .eod-operation-status {
+    flex-wrap: wrap;
+  }
+
+  .eod-operation-status small {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .eod-operation-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .eod-update-notice {
+    flex-wrap: wrap;
+  }
+
+  .app-main > .eod-update-notice {
+    margin: var(--space-2) var(--space-2) 0;
+  }
+
+  /* The search field owns the width on a phone: the action keeps its icon and
+     drops the label rather than squeezing everything else. */
+  .eod-update-button--compact {
+    width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .eod-update-button--compact > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

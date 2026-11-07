@@ -1,0 +1,770 @@
+.options-board {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--color-text);
+  font-size: 12px;
+}
+.options-board *,
+.options-board *::before,
+.options-board *::after {
+  box-sizing: border-box;
+}
+.options-board h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+.options-board p {
+  margin: 5px 0 0;
+  line-height: 1.65;
+}
+.options-board small,
+.options-board .ob-note {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+.options-board .ob-up {
+  color: var(--color-up);
+}
+.options-board .ob-down {
+  color: var(--color-down);
+}
+.options-board .ob-warning {
+  color: var(--color-warning);
+}
+.ob-panel,
+.ob-verdict,
+.ob-research-card,
+.ob-tide {
+  min-width: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-large);
+}
+.ob-panel {
+  overflow: hidden;
+}
+.ob-panel > header,
+.ob-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+}
+.ob-panel > header {
+  border-bottom: 1px solid var(--color-hairline);
+}
+.ob-panel > header p,
+.ob-card-heading p {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+}
+.ob-verdict {
+  padding: 14px 18px;
+  border-left: 3px solid var(--color-cone);
+}
+.ob-verdict h3 {
+  margin-bottom: 8px;
+}
+.ob-verdict p {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+.ob-verdict b {
+  color: var(--color-text);
+}
+.ob-verdict .ob-note,
+.ob-panel > .ob-note {
+  padding: 10px 18px;
+  border-top: 1px solid var(--color-hairline);
+}
+.ob-verdict .ob-note {
+  padding: 8px 0 0;
+}
+.ob-tide {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 2.2fr 0.8fr 1fr 1fr;
+  padding: 14px 4px;
+}
+.ob-tide > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 14px;
+  border-right: 1px solid var(--color-hairline);
+  gap: 6px;
+}
+.ob-tide > div:last-child {
+  border-right: 0;
+}
+.ob-tide > div > span {
+  color: var(--color-text-secondary);
+}
+.ob-tide strong {
+  font: 600 20px var(--font-mono);
+  white-space: nowrap;
+}
+.ob-tide strong small {
+  font: 12px var(--font-sans);
+}
+.ob-tide small {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.ob-tide .ob-split {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+}
+.ob-outlook-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 14px;
+}
+.ob-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.ob-controls {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 2px;
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+}
+.ob-controls button {
+  border: 0;
+  border-radius: var(--radius-small);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 5px 9px;
+  white-space: nowrap;
+}
+.ob-controls button[aria-pressed="true"] {
+  color: var(--color-text);
+  background: var(--color-accent-soft);
+}
+.ob-card-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 8px 12px;
+  border-width: 0.5px;
+}
+.ob-card-tools label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ob-card-tools input {
+  width: 220px;
+  padding: 6px 8px;
+  font: inherit;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 0.5px solid var(--color-divider);
+  border-radius: var(--radius-small);
+}
+.ob-card-tools input:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+.ob-card-tools button:disabled {
+  color: var(--color-text-tertiary);
+  cursor: default;
+}
+.options-board button:focus-visible,
+.options-board select:focus-visible,
+.options-board [tabindex]:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+.ob-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-track) transparent;
+}
+.ob-outlook .ob-scroll {
+  max-height: 360px;
+  overflow-y: auto;
+}
+.ob-outlook thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-surface);
+}
+.options-board table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.options-board th {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  text-align: right;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--color-divider);
+}
+.options-board td {
+  padding: 8px 10px;
+  text-align: right;
+  border-bottom: 1px solid var(--color-hairline);
+  font-family: var(--font-mono);
+}
+.options-board td:first-child,
+.options-board th:first-child {
+  text-align: left;
+}
+.options-board tbody tr {
+  cursor: pointer;
+}
+.options-board tbody tr:hover {
+  background: var(--color-surface-secondary);
+}
+.options-board tbody tr:last-child td {
+  border-bottom: 0;
+}
+.ob-outlook td {
+  padding: 8px;
+}
+.ob-outlook th {
+  padding: 8px;
+  white-space: normal;
+}
+.ob-outlook td:nth-child(2),
+.ob-outlook th:nth-child(2) {
+  text-align: left;
+}
+.ob-outlook tr[aria-selected="true"] {
+  background: var(--color-accent-soft);
+}
+.ob-outlook tr[aria-selected="true"] td:first-child {
+  box-shadow: inset 3px 0 0 var(--color-cone);
+}
+.ob-outlook td small {
+  display: block;
+}
+.ob-look {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: var(--radius-small);
+  font: 600 12px var(--font-sans);
+  white-space: nowrap;
+}
+.ob-look--def {
+  color: var(--color-down);
+  background: color-mix(in srgb, var(--color-down) 14%, transparent);
+}
+.ob-look--bull {
+  color: var(--color-up);
+  background: color-mix(in srgb, var(--color-up) 14%, transparent);
+}
+.ob-look--vol {
+  color: var(--color-warning);
+  background: color-mix(in srgb, var(--color-warning) 14%, transparent);
+}
+.ob-look--neu,
+.ob-look--missing {
+  color: var(--color-text-secondary);
+  background: var(--color-surface-secondary);
+}
+.ob-range {
+  font: 12px var(--font-mono);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.ob-range small {
+  display: block;
+  font-size: 12px;
+}
+.ob-prob-bar {
+  display: inline-grid;
+  grid-template-columns: 30px 62px 30px;
+  gap: 4px;
+  align-items: center;
+  font: 12px var(--font-mono);
+}
+.ob-prob-track {
+  height: 8px;
+  position: relative;
+  border-left: 1px solid var(--color-hairline);
+}
+.ob-prob-track i {
+  position: absolute;
+  height: 8px;
+  border-radius: 2px;
+}
+.ob-prob-track i:first-child {
+  right: 50%;
+}
+.ob-prob-track i:last-child {
+  left: 50%;
+}
+.ob-distribution {
+  position: relative;
+}
+.ob-distribution > .ob-controls {
+  position: absolute;
+  right: 16px;
+  top: 10px;
+  z-index: 1;
+}
+.ob-distribution .overview-terminal-chart {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.ob-distribution .overview-terminal-chart > header {
+  padding-right: 120px;
+}
+.ob-distribution .overview-terminal-chart__canvas {
+  height: 286px;
+}
+.ob-distribution .overview-terminal-chart details {
+  margin: 0 16px 10px;
+}
+.ob-dist-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--color-hairline);
+}
+.ob-dist-stats > div {
+  min-width: 0;
+  padding: 9px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-bottom: 1px solid var(--color-hairline);
+}
+.ob-dist-stats > div:nth-child(odd) {
+  border-right: 1px solid var(--color-hairline);
+}
+.ob-dist-stats span {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+.ob-dist-stats b {
+  font: 600 14px var(--font-mono);
+}
+.ob-dist-stats b span {
+  font: inherit;
+}
+.ob-empty {
+  padding: 24px 18px;
+  color: var(--color-text-tertiary);
+  min-height: 170px;
+}
+.ob-card-heading {
+  padding: 4px 0;
+}
+.ob-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.ob-research-card {
+  cursor: pointer;
+  padding: 12px 14px 10px;
+}
+.ob-research-card:hover {
+  border-color: var(--color-cone);
+}
+.ob-research-card > header {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 12px;
+}
+.ob-research-card > header > b {
+  font-size: 16px;
+}
+.ob-research-card > header > span:first-of-type {
+  color: var(--color-text-tertiary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ob-research-card > header > strong {
+  margin-left: auto;
+  font: 600 14px var(--font-mono);
+}
+.ob-research-card > header > span:last-child {
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+.ob-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 11px;
+  padding-top: 9px;
+  color: var(--color-text-tertiary);
+}
+.ob-card-chips b {
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+}
+.ob-research-card .overview-terminal-chart {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.ob-research-card .overview-terminal-chart > header {
+  display: none;
+}
+.ob-research-card .overview-terminal-chart__canvas {
+  height: 158px;
+}
+.ob-research-card .overview-terminal-chart details {
+  margin: 0;
+}
+.ob-research-card .overview-terminal-chart details > summary {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  padding: 0 0 6px;
+}
+.ob-card-outlook {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  border-top: 1px solid var(--color-hairline);
+  padding: 8px 0;
+  color: var(--color-text-tertiary);
+}
+.ob-card-outlook b,
+.ob-research-card footer b {
+  font-family: var(--font-mono);
+}
+.ob-research-card footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid var(--color-hairline);
+  padding-top: 8px;
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+.ob-model-badge {
+  padding: 2px 6px;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-small);
+  white-space: nowrap;
+}
+.ob-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 18px 0;
+  color: var(--color-text-tertiary);
+}
+.ob-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ob-legend i {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+.ob-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 12px 18px;
+}
+.ob-mix-row {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 80px;
+  align-items: center;
+  gap: 12px;
+  min-height: 21px;
+  cursor: pointer;
+}
+.ob-mix-row > span:last-child {
+  text-align: right;
+  font-family: var(--font-mono);
+  color: var(--color-text-tertiary);
+}
+.ob-mix-row--all {
+  cursor: default;
+  border-bottom: 1px solid var(--color-hairline);
+  padding-bottom: 9px;
+  margin-bottom: 3px;
+}
+.ob-stack {
+  display: flex;
+  height: 19px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--color-track);
+}
+.ob-stack > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 12px var(--font-mono);
+  overflow: hidden;
+}
+.ob-stack--empty {
+  color: var(--color-text-tertiary);
+  align-items: center;
+  justify-content: center;
+}
+.ob-target-row,
+.ob-ladder-row,
+.ob-ladder-axis {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 128px;
+  gap: 12px;
+  align-items: center;
+  min-height: 24px;
+}
+.ob-target-row,
+.ob-ladder-row {
+  cursor: pointer;
+}
+.ob-target-row > span:last-child,
+.ob-ladder-row > span:last-child {
+  text-align: right;
+  font-family: var(--font-mono);
+  color: var(--color-text-tertiary);
+}
+.ob-target-track,
+.ob-ladder-track,
+.ob-rank-track {
+  position: relative;
+  min-width: 0;
+  height: 24px;
+}
+.ob-target-track {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 calc(10% - 1px),
+    var(--color-hairline) calc(10% - 1px) 10%
+  );
+}
+.ob-zero {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--color-text-tertiary);
+}
+.ob-target-line {
+  position: absolute;
+  top: 11px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-down), var(--color-up));
+  opacity: 0.45;
+}
+.ob-target-dot {
+  position: absolute;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  border: 2px solid var(--color-surface);
+}
+.ob-target-dot--put {
+  background: var(--color-down);
+}
+.ob-target-dot--call {
+  background: var(--color-up);
+}
+.ob-target-pct {
+  position: absolute;
+  top: 5px;
+  font: 12px var(--font-mono);
+  padding: 0 3px;
+  background: var(--color-surface);
+}
+.ob-target-pct.ob-down {
+  left: 4%;
+}
+.ob-target-pct.ob-up {
+  right: 4%;
+}
+.ob-ladder-axis {
+  color: var(--color-text-tertiary);
+  font: 12px var(--font-mono);
+}
+.ob-ladder-axis > div,
+.ob-rank-head > div {
+  display: flex;
+  justify-content: space-between;
+}
+.ob-ladder-axis > span:last-child {
+  text-align: right;
+}
+.ob-ladder-band {
+  position: absolute;
+  border-radius: 2px;
+}
+.ob-ladder-band--20 {
+  top: 4px;
+  height: 16px;
+  background: color-mix(in srgb, var(--color-cone) 25%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-cone) 50%, transparent);
+}
+.ob-ladder-band--5 {
+  top: 8px;
+  height: 8px;
+  background: var(--color-cone);
+}
+.ob-rank-row,
+.ob-rank-head {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 170px;
+  gap: 12px;
+  align-items: center;
+}
+.ob-rank-row {
+  cursor: pointer;
+}
+.ob-rank-row > span:last-child,
+.ob-rank-head > span:last-child {
+  text-align: right;
+  color: var(--color-text-tertiary);
+  font: 12px var(--font-mono);
+}
+.ob-rank-head {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+  padding-bottom: 4px;
+}
+.ob-rank-band {
+  position: absolute;
+  top: 6px;
+  height: 12px;
+  border-radius: 2px;
+}
+.ob-rank-value {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  font: 12px var(--font-mono);
+  padding: 0 3px;
+  background: var(--color-surface);
+}
+.ob-flow-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.ob-flow-controls label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-text-secondary);
+}
+.ob-flow-controls select {
+  border: 1px solid var(--color-divider);
+  color: var(--color-text);
+  background: var(--color-surface-secondary);
+  border-radius: var(--radius-medium);
+  padding: 5px 8px;
+  font: 12px var(--font-sans);
+}
+.ob-flow-controls input {
+  accent-color: var(--color-cone);
+}
+.ob-premium-cell {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.ob-inline-bar {
+  width: 110px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--color-track);
+  overflow: hidden;
+}
+.ob-inline-bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+}
+.ob-detail-scroll {
+  padding-bottom: 8px;
+}
+.ob-detail-table {
+  min-width: 1690px;
+}
+.ob-detail-table th button {
+  color: inherit;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.ob-detail-table tr:not(.ob-table-groups) > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--color-surface);
+}
+.ob-detail-table tr:hover > td:first-child {
+  background: var(--color-surface-secondary);
+}
+.ob-table-groups th {
+  text-align: center;
+  letter-spacing: 0.5px;
+  border-left: 1px solid var(--color-divider);
+  padding: 7px 10px;
+}
+.ob-table-groups th:first-child {
+  border-left: 0;
+}
+.ob-group-start {
+  border-left: 1px solid var(--color-hairline);
+}
+.ob-data-reasons {
+  padding: 12px 18px;
+  color: var(--color-text-tertiary);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-medium);
+  font-size: 12px;
+}
+.ob-data-reasons summary {
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+.options-board .overview-terminal-chart > header p,
+.options-board .overview-terminal-chart summary {
+  font-size: 12px;
+}
+.ob-research-card .overview-terminal-chart summary {
+  min-height: 20px;
+}
+@media (min-width: 1700px) {
+  .ob-prob-bar {
+    grid-template-columns: 34px 92px 34px;
+    gap: 6px;
+  }
+  .ob-card-outlook {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+}

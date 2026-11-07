@@ -1,0 +1,233 @@
+.option-chart-explainer {
+  color: var(--color-text-secondary, #aaa8bb);
+  margin-top: 10px;
+  font-size: 12px;
+}
+.option-chart-explainer summary {
+  cursor: pointer;
+}
+.option-chart-explainer p {
+  margin: 8px 0;
+  line-height: 1.7;
+}
+.option-empty {
+  border: 1px dashed var(--color-border, #373642);
+  border-radius: 8px;
+  padding: 22px;
+  color: var(--color-text-secondary, #aaa8bb);
+}
+.option-deviation {
+  background: rgba(154, 143, 231, 0.12);
+  color: #ccc1fa;
+  border-radius: 4px;
+  padding: 3px 5px;
+}
+.option-risk-neutral {
+  color: #aaa8bb;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.option-table-wrap {
+  overflow-x: auto;
+}
+.option-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.option-table-wrap th,
+.option-table-wrap td {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--color-border, #303039);
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.option-table-wrap th:first-child,
+.option-table-wrap td:first-child {
+  text-align: left;
+}
+.option-table-wrap th button {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.option-table-wrap a {
+  color: #cec5fb;
+  text-decoration: none;
+}
+.option-table-wrap tbody tr:hover {
+  background: rgba(154, 143, 231, 0.05);
+}
+.option-horizon-switch {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+.option-horizon-switch button[aria-pressed="true"] {
+  border-color: #9a8fe7;
+  color: #d4cbff;
+}
+.option-header-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.option-sentiment-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #383646;
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(154, 143, 231, 0.04);
+}
+.option-sentiment-card strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #cec5fb;
+}
+.option-sentiment-card p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 3px 0;
+}
+.option-sentiment-card small {
+  color: #9290a5;
+  font-size: 10px;
+}
+.ov-options-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+.ov-options-charts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.ov-options-pulse {
+  min-width: 0;
+}
+.ov-options-pulse .option-table-wrap {
+  font-size: 11px;
+}
+.ov-options-pulse .option-data-column {
+  display: none;
+}
+.ov-options-pulse header p {
+  font-size: 12px;
+  color: #aaa8bb;
+}
+.option-sparkline {
+  width: 65px;
+  height: 19px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.option-evidence-warning {
+  padding: 12px;
+  border: 1px solid #a5753d;
+  background: rgba(224, 173, 88, 0.1);
+  color: #ebc88f;
+  border-radius: 6px;
+}
+.option-gate-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  padding: 0;
+  list-style: none;
+}
+.option-gate-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  background: #21212b;
+  font-size: 12px;
+}
+.option-gate-list [data-status="passed"] b {
+  color: #7fd1b0;
+}
+.option-gate-list [data-status="failed"] b {
+  color: #e9af84;
+}
+.option-gate-list [data-status="insufficient"] b {
+  color: #aaa8bb;
+}
+.option-progress {
+  width: 100%;
+  accent-color: #9a8fe7;
+}
+@media (min-width: 1600px) {
+  .ov-options-layout {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  }
+  .ov-options-charts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ov-options-pulse .option-data-column {
+    display: table-cell;
+  }
+}
+.option-backtests,
+.option-collection-matrix {
+  scroll-margin-top: 112px;
+}
+.option-refresh-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 12px 0;
+  color: var(--color-text-secondary, #aaa8bb);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.option-refresh-control > button {
+  padding: 8px 14px;
+  border: 1px solid #8272b9;
+  border-radius: 6px;
+  background: #302941;
+  color: #ede6ff;
+  cursor: pointer;
+}
+.option-refresh-control > button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.option-refresh-control > p,
+.option-refresh-control > details {
+  flex-basis: 100%;
+  margin: 0;
+}
+.option-refresh-control summary {
+  cursor: pointer;
+}
+.option-time-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.option-time-switch > button {
+  padding: 7px 12px;
+  color: #aaa8bb;
+  border: 1px solid #373642;
+  background: #202027;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.option-time-switch > button[aria-pressed="true"] {
+  background: #302941;
+  color: #ede6ff;
+  border-color: #8272b9;
+}
+.option-time-switch > p {
+  flex-basis: 100%;
+  margin: 3px 0;
+}
